@@ -1,0 +1,20 @@
+.contact-main { padding: 60px 8%; display: flex; justify-content: center; }
+.contact-container-box {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  max-width: 900px;
+  width: 100%;
+}
+.contact-text-side { padding: 40px; background: #065f46; color: white; }
+.contact-form-side { padding: 40px; display: flex; flex-direction: column; gap: 15px; }
+.contact-form-side input, .contact-form-side textarea { padding: 12px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 16px; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .contact-container-box { grid-template-columns: 1fr; }
+  .contact-main { padding: 30px 5%; }
+}

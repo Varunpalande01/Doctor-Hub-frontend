@@ -1,0 +1,14 @@
+.blogs-hero { text-align: center; padding: 40px 8% 10px; }
+.blogs-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px 8% 60px;
+}
+.section-header h2 { font-size: 28px; }
+.accent-line { width: 50px; height: 3px; background: #10b981; margin: 10px auto; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .blogs-grid-container { grid-template-columns: 1fr; padding: 20px 5%; }
+}

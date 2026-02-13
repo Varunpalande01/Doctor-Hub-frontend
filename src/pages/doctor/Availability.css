@@ -1,0 +1,251 @@
+/* ===============================
+   Doctor Availability Page
+================================= */
+
+.doctor-page {
+  padding: 30px 20px;
+  max-width: 950px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.doctor-page h2 {
+  color: #107a53;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ===============================
+   Day Container
+================================= */
+
+.availability-day {
+  margin-bottom: 25px;
+  border: 1px solid #d1fae5;
+  border-radius: 12px;
+  padding: 18px;
+  background-color: #f0fdf4;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+  transition: all 0.2s ease;
+}
+
+.availability-day:hover {
+  transform: translateY(-2px);
+}
+
+/* Header */
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.day-header h4 {
+  margin: 0;
+  color: #065f46;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ===============================
+   Slot Container
+================================= */
+
+.slots-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ===============================
+   Slot Buttons
+================================= */
+
+.slot-btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 85px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+
+/* Available */
+.slot-btn.available {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.slot-btn.available:hover {
+  background-color: #10b981;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Blocked */
+.slot-btn.blocked {
+  background-color: #ef4444;
+  color: white;
+  border-color: #b91c1c;
+}
+
+.slot-btn.blocked:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* Booked */
+.slot-btn.booked {
+  background-color: #6b7280;
+  color: white;
+  border-color: #4b5563;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+/* ===============================
+   Block / Unblock Day Buttons
+================================= */
+
+.block-day-btn,
+.unblock-day-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.block-day-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.block-day-btn:hover {
+  background-color: #b91c1c;
+  transform: scale(1.05);
+}
+
+.unblock-day-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.unblock-day-btn:hover {
+  background-color: #059669;
+  transform: scale(1.05);
+}
+
+/* ===============================
+   Popup Notification
+================================= */
+
+.availability-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 280px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 9999;
+  animation: slide-in 0.3s ease-out;
+  color: white;
+  font-size: 14px;
+}
+
+.availability-popup.success { background-color: #10b981; }
+.availability-popup.warning { background-color: #f59e0b; }
+
+.availability-popup p { margin: 0; font-weight: 500; }
+
+.availability-popup button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+/* ===============================
+   Animation
+================================= */
+
+@keyframes slide-in {
+  from {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ================================================================
+   ALL-SCREEN RESPONSIVE MEDIA QUERIES (UPDATED)
+================================================================ */
+
+@media (max-width: 768px) {
+  .doctor-page {
+    padding: 20px 10px;
+  }
+
+  .day-header {
+    flex-direction: row; /* Keep title and button on same line */
+    align-items: center;
+  }
+
+  /* Instead of a vertical list, use a 3-column grid for tablets */
+  .slots-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .slot-btn {
+    width: 100%;
+    min-width: unset;
+    padding: 12px 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctor-page h2 {
+    font-size: 20px;
+  }
+
+  /* Use a 2-column grid for phones so it's readable but compact */
+  .slots-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .day-header h4 {
+    font-size: 15px;
+  }
+
+  .block-day-btn, .unblock-day-btn {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .availability-popup {
+    left: 10px;
+    right: 10px;
+    min-width: unset;
+    bottom: 10px;
+  }
+}

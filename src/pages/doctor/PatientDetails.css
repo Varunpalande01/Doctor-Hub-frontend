@@ -1,0 +1,253 @@
+.patient-details-page {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* LEFT SUMMARY */
+.patient-summary {
+  width: 260px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  height: fit-content;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background: #16a34a;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+/* RIGHT SECTION */
+.patient-records {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* TABS */
+/* 1. Main Tab Styles */
+.patient-tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 16px;
+  overflow-x: auto;
+  /* Remove scrollbar-width from here to see if the error clears */
+}
+
+/* 2. Cross-Browser Scrollbar Hiding (The "Secret Sauce") */
+@supports (scrollbar-width: none) {
+  .patient-tabs {
+    scrollbar-width: none;
+  }
+}
+
+.patient-tabs::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+} 
+
+.patient-tabs button {
+  background: none;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #6b7280;
+  white-space: nowrap;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.patient-tabs button.active {
+  color: #16a34a;
+  border-bottom: 2px solid #16a34a;
+}
+
+/* HEADER */
+.tab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 10px;
+}
+
+.add-btn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: #15803d;
+}
+
+/* CARDS */
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  background: #f9fafb;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  border-color: #16a34a;
+}
+
+.card p {
+  font-size: 14px;
+  color: #374151;
+  margin: 4px 0;
+}
+
+/* EMPTY STATE */
+.empty-state {
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 2px dashed #e5e7eb;
+}
+
+/* MODAL STYLES */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(2px); /* For Safari support */
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  background: white;
+  padding: 24px;
+  width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+.modal label {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline-color: #16a34a;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-btn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancel-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ================================================================
+   ALL-SCREEN RESPONSIVE MEDIA QUERIES
+================================================================ */
+
+@media (max-width: 992px) {
+  .patient-details-page {
+    flex-direction: column;
+  }
+  
+  .patient-summary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .patient-details-page {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .tab-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .save-btn, .cancel-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .avatar {
+    margin: 0 auto 12px;
+  }
+
+  .patient-summary {
+    text-align: center;
+  }
+}

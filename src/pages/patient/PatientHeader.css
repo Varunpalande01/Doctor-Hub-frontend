@@ -1,0 +1,146 @@
+/* --- PATIENT / SITE HEADER FULL CODE --- */
+
+.patient-header {
+  height: 60px;
+  background: #10b981; /* green for patient panel */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-weight: bold;
+}
+
+.site-header {
+  height: 64px;
+  padding: 0 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-area {
+  position: relative;
+}
+
+.profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover; /* Ensures image isn't stretched */
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  color: #333;
+  padding: 15px; /* Increased slightly for better touch target */
+  border-radius: 6px;
+  width: 180px; /* Slightly wider for better text fit */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 100;
+}
+
+.profile-dropdown p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.profile-dropdown span {
+  font-size: 12px;
+  color: gray;
+  display: block; /* Ensures it stays on its own line */
+}
+
+.profile-dropdown hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+.profile-dropdown a {
+  display: block;
+  color: #10b981;
+  text-decoration: none;
+  margin-top: 5px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.profile-dropdown a:hover {
+  text-decoration: underline;
+}
+
+.logout-button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.logout-button:hover {
+  background: #dc2626;
+}
+
+.logout-button:active {
+  background: #b91c1c;
+  transform: scale(0.98); /* Added small feedback for "active" */
+}
+
+.logout-button:disabled {
+  background: #fca5a5;
+  cursor: not-allowed;
+}
+
+.logout-button:disabled:hover {
+  background: #fca5a5;
+}
+
+.logout-button:disabled:active {
+  background: #fca5a5;
+}
+
+.logout-button:disabled span {
+  transform: none;
+}
+
+/* --- ALL-SCREEN RESPONSIVE ADDITIONS --- */
+
+@media (max-width: 768px) {
+  .site-header, .patient-header {
+    padding: 0 15px; /* Tighter padding for mobile */
+  }
+  
+  .header-title {
+    font-size: 14px; /* Scaled down for mobile */
+    max-width: 60%; /* Prevents title from hitting profile img */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-dropdown {
+    right: -10px; /* Adjust alignment for very small screens */
+    width: 160px;
+  }
+  
+  /* Prevent horizontal scroll on body if dropdown is open */
+  body {
+    overflow-x: hidden;
+  }
+}

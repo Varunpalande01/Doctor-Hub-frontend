@@ -1,0 +1,96 @@
+.doctor-page {
+  padding: 24px;
+}
+
+.doctor-page h3 {
+  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.doctor-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.doctor-table th,
+.doctor-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.doctor-table th {
+  background: #f6f8fa;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.view-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.actions button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.warning-text {
+  margin-top: 12px;
+  color: #d97706;
+  font-size: 14px;
+}
+.btn.view {
+  background: #2563eb;
+  color: white;
+}
+
+.approve-btn {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.reject-btn {
+  background: #fee2e2;
+  
+}
+.btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+
+.btn.view {
+  background: #2563eb;
+  color: white;
+}
+
+.approve-btn {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.reject-btn {
+  background: #fee2e2;
+  
+}
+.btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}

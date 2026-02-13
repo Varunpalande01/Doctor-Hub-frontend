@@ -1,0 +1,210 @@
+/* ================================================================
+   PATIENT DASHBOARD - FULL CODE
+   Keeps all original styles + All-Screen Compatibility
+================================================================ */
+
+.patient-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Stats Cards */
+.stats-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 28px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+/* Appointments Table */
+.appointments-section {
+  background: #ffffff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow-x: auto; /* Safety for all screens */
+}
+
+.appointments-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.appointments-section th, .appointments-section td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.appointments-section th {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.appointments-section td {
+  color: #374151;
+}
+
+/* Notifications */
+.notifications-section {
+  background: #ffffff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.notifications-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.notifications-section li {
+  background: #f0fdf4;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  color: #374151;
+}
+
+.notifications-section li:last-child {
+  margin-bottom: 0;
+}
+
+.notifications-section li strong {
+  color: #10b981;
+}
+
+.notifications-section li span {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* Section Helpers */
+.patient-dashboard .section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #111827;
+}
+
+.patient-dashboard .no-appointments {
+  text-align: center;
+  color: #6b7280;
+  padding: 20px 0;
+}
+
+/* Repeated classes exactly as provided */
+.patient-dashboard .no-notifications {
+  text-align: center;
+  color: #6b7280;
+  padding: 20px 0;
+}
+.patient-dashboard .no-notifications {
+  text-align: center;
+  color: #6b7280;
+  padding: 20px 0;
+}
+.patient-dashboard .no-notifications {
+  text-align: center;
+  color: #6b7280;
+  padding: 20px 0;
+}
+.patient-dashboard .no-notifications {
+  text-align: center;
+  color: #6b7280;
+  padding: 20px 0;
+}
+.patient-dashboard .no-notifications {
+  text-align: center;
+  color: #6b7280;
+  padding: 20px 0;
+}
+
+/* ================================================================
+   ALL-SCREEN RESPONSIVE (ORIGINAL + ENHANCEMENTS)
+================================================================ */
+
+@media (max-width: 768px) {
+  .stats-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .patient-dashboard {
+    padding: 10px; /* Ensures content doesn't hit screen edges */
+  }
+}
+
+@media (max-width: 480px) {
+  .appointments-section {
+    padding: 15px 10px;
+  }
+  
+  /* Modern Stacked Table View */
+  .appointments-section table, 
+  .appointments-section thead, 
+  .appointments-section tbody, 
+  .appointments-section th, 
+  .appointments-section td, 
+  .appointments-section tr {
+    display: block;
+  }
+
+  .appointments-section thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .appointments-section tr {
+    border: 1px solid #e5e7eb;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .appointments-section td {
+    border: none;
+    border-bottom: 1px solid #f3f4f6;
+    position: relative;
+    padding-left: 50% !important;
+    text-align: right;
+  }
+
+  .appointments-section td:last-child {
+    border-bottom: none;
+  }
+
+  .appointments-section td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: 700;
+    color: #6b7280;
+  }
+}

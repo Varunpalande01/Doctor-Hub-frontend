@@ -1,0 +1,48 @@
+/* --- ABOUT HERO --- */
+.about-hero-modern {
+  background: linear-gradient(rgba(6, 78, 59, 0.8), rgba(6, 78, 59, 0.8)), 
+              url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 10%;
+}
+
+.hero-overlay h2 { font-size: 3rem; margin: 15px 0; }
+.hero-overlay h2 span { color: #10b981; }
+.hero-overlay p { max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
+
+/* --- VALUES --- */
+.about-values { padding: 80px 8%; background: #ffffff; }
+.values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+.value-card { padding: 40px; border-radius: 20px; background: #f8fafc; transition: all 0.3s ease; border: 1px solid #e2e8f0; }
+.value-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: #10b981; }
+.value-icon { font-size: 2.5rem; margin-bottom: 20px; }
+.value-card h3 { color: #064e3b; margin-bottom: 15px; }
+
+/* --- MISSION SPLIT --- */
+.mission-split { display: flex; align-items: center; padding: 80px 8%; background: #f1f5f9; gap: 60px; }
+.mission-image { flex: 1; height: 400px; background: #d1fae5; border-radius: 30px; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+.mission-text { flex: 1; }
+.mission-text h2 { font-size: 2.5rem; color: #064e3b; margin-bottom: 20px; }
+.mission-stats { display: flex; gap: 40px; margin-top: 40px; }
+.stat strong { display: block; font-size: 1.8rem; color: #10b981; }
+.stat p { margin: 0; color: #64748b; font-size: 0.9rem; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .mission-split { flex-direction: column; text-align: center; padding: 40px 5%; }
+  .mission-stats { justify-content: center; }
+}
+@media (max-width: 768px) {
+  .hero-overlay h2 { font-size: 2rem; }
+  .mission-image { width: 100%; height: 300px; }
+}
+@media (max-width: 480px) {
+  .mission-stats { flex-direction: column; gap: 20px; }
+}

@@ -1,0 +1,173 @@
+/* --- PENDING VERIFICATIONS PAGE --- */
+.pending-verifications-page {
+  padding: clamp(15px, 4vw, 30px);
+  background-color: #f9fafb;
+  min-height: calc(100vh - 65px); /* Adjusted for your 65px Admin Header */
+  font-family: 'Inter', sans-serif;
+}
+
+.pending-verifications-page h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.verification-subtext {
+  font-size: 15px;
+  color: #6b7280;
+  margin-bottom: 30px;
+  display: block;
+}
+
+/* --- DOCTOR CARDS GRID --- */
+.doctor-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Individual Card Styling */
+.doctor-verification-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.doctor-verification-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-color: #10b981;
+}
+
+/* Card Content Details */
+.card-profile-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.card-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f3f4f6;
+}
+
+.doctor-name-meta h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.doctor-specialty-tag {
+  font-size: 12px;
+  color: #10b981;
+  background: #ecfdf5;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.card-details {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* --- ACTION BUTTONS --- */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn-review {
+  flex: 2;
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-ignore {
+  flex: 1;
+  background: #f3f4f6;
+  color: #6b7280;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-review:hover { background: #059669; }
+.btn-ignore:hover { background: #e5e7eb; }
+
+/* Empty State Styling */
+.no-pending-msg {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+  border-radius: 16px;
+  border: 2px dashed #e5e7eb;
+}
+
+/* ================================================================
+   ALL-SCREEN RESPONSIVE MEDIA QUERIES
+================================================================ */
+
+@media (max-width: 768px) {
+  .pending-verifications-page {
+    padding: 20px;
+  }
+  
+  .pending-verifications-page h2 {
+    font-size: 24px;
+  }
+
+  .doctor-cards {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pending-verifications-page {
+    background-color: #ffffff; /* Cleaner flat look for mobile */
+  }
+
+  .doctor-verification-card {
+    padding: 15px;
+    box-shadow: none;
+    border: 1px solid #f3f4f6;
+  }
+
+  .card-profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+  
+  .btn-review, .btn-ignore {
+    width: 100%;
+    padding: 12px;
+  }
+}

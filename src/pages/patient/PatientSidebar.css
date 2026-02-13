@@ -1,0 +1,148 @@
+.patient-sidebar {
+  width: 240px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 20px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+/* --- COLLAPSED STATE --- */
+.patient-sidebar.collapsed {
+  width: 80px;
+  padding: 20px 10px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.sidebar-logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #10b981; /* green for patient panel */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.collapse-toggle {
+  background: #f3f4f6;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.collapse-toggle:hover {
+  background: #e5e7eb;
+}
+
+.patient-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.patient-sidebar li {
+  margin-bottom: 12px;
+}
+
+.patient-sidebar a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s;
+  gap: 12px;
+}
+
+.sidebar-icon {
+  font-size: 18px;
+  min-width: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.link-text {
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.2s;
+}
+
+.patient-sidebar a.active,
+.patient-sidebar a:hover {
+  background: #10b981;
+  color: white;
+}
+
+/* --- LOGOUT BUTTON (Original Styles Kept) --- */
+.patient-sidebar .logout-button {
+  margin-top: auto;
+  padding: 10px;
+  background: #ef4444; 
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+/* ================================================================
+   ALL-SCREEN RESPONSIVE MEDIA QUERIES (ONLY CHANGES HERE)
+================================================================ */
+
+@media (max-width: 1024px) {
+  .patient-sidebar {
+    width: 200px;
+  }
+  .patient-sidebar.collapsed {
+    width: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* On mobile, sidebar turns into a bottom navigation or top bar */
+  .patient-sidebar {
+    width: 100% !important;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    position: relative;
+    padding: 10px;
+  }
+
+  .sidebar-header { margin-bottom: 10px; }
+  .collapse-toggle { display: none; } /* No collapse on mobile */
+
+  .patient-sidebar ul {
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+  }
+
+  .patient-sidebar li { margin-bottom: 0; }
+
+  .link-text { display: none; } /* Icons only on small mobile to save space */
+  
+  .patient-sidebar a {
+    padding: 10px;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-logo { font-size: 16px; }
+}
