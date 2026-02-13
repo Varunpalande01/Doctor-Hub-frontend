@@ -140,9 +140,9 @@ const LoginPage = () => {
     let users = JSON.parse(localStorage.getItem("users"));
     if (!users) {
       users = [
-        { role: "ADMIN", email: "admin_demo@example.com", password: "admin123", fullName: "Admin User" },
-        { role: "DOCTOR", email: "doctor_demo@example.com", password: "doctor123", fullName: "Dr. Demo" },
-        { role: "PATIENT", email: "patient_demo@example.com", password: "patient123", fullName: "Patient Demo" },
+        { role: "ADMIN", email: "admin@demo.com", password: "admin123", fullName: "Admin User" },
+        { role: "DOCTOR", email: "doctor@demo.com", password: "doctor123", fullName: "Dr. Demo" },
+        { role: "PATIENT", email: "patient@demo.com", password: "patient123", fullName: "Patient Demo" },
       ];
       localStorage.setItem("users", JSON.stringify(users));
     }
