@@ -108,145 +108,115 @@
 // export default LoginPage;
 
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MessageCard from "../../components/common/MessageCard";
 import "./Login.css";
+
+import userlogin from "../../assets/images/userlogin.png";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [identifier, setIdentifier] = useState("");
+
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState(null);
+  const [popupMessage, setPopupMessage] = useState("");
+  const [popupType, setPopupType] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // ✅ Create demo users if not already present
-  useEffect(() => {
-    const existingUsers = JSON.parse(localStorage.getItem("users"));
-    if (!existingUsers) {
-      const demoUsers = [
-        {
-          fullName: "Admin ",
-          email: "admin@demo.com",
-          password: "admin123",
-          role: "ADMIN",
-        },
-        {
-          fullName: "Doctor",
-          email: "doctor@demo.com",
-          password: "doctor123",
-          role: "DOCTOR",
-        },
-        {
-          fullName: "Patient",
-          email: "patient@demo.com",
-          password: "patient123",
-          role: "PATIENT",
-        },
-      ];
-      localStorage.setItem("users", JSON.stringify(demoUsers));
-    }
-  }, []);
+  const showPopup = (message, type) => {
+    setPopupMessage(message);
+    setPopupType(type);
+
+    setTimeout(() => {
+      setPopupMessage("");
+    }, 2300);
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
-
-    if (!identifier) {
-      setMessage({ text: "Please enter username/email", type: "error" });
-      return;
-    }
-
-    if (!password) {
-      setMessage({ text: "Password cannot be empty", type: "error" });
-      return;
-    }
-
     setLoading(true);
-    setMessage(null);
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    // Get dummy users from localStorage or create default ones
+    let users = JSON.parse(localStorage.getItem("users"));
+    if (!users) {
+      users = [
+        { role: "ADMIN", email: "admin_demo@example.com", password: "admin123", fullName: "Admin User" },
+        { role: "DOCTOR", email: "doctor_demo@example.com", password: "doctor123", fullName: "Dr. Demo" },
+        { role: "PATIENT", email: "patient_demo@example.com", password: "patient123", fullName: "Patient Demo" },
+      ];
+      localStorage.setItem("users", JSON.stringify(users));
+    }
 
-    const user = users.find(
-      (u) =>
-        (u.email === identifier || u.fullName === identifier) &&
-        u.password === password
+    const validUser = users.find(
+      (u) => u.email === email && u.password === password
     );
 
-    if (!user) {
-      setMessage({ text: "Invalid credentials", type: "error" });
+    if (!validUser) {
+      showPopup("Invalid email or password", "error");
       setLoading(false);
       return;
     }
 
-    localStorage.setItem("currentUser", JSON.stringify(user));
+    localStorage.setItem("currentUser", JSON.stringify(validUser));
 
-    setMessage({
-      text: `Welcome back, ${user.fullName}!`,
-      type: "success",
-    });
+    showPopup("Login successful! Redirecting...", "success");
 
     setTimeout(() => {
       setLoading(false);
-      if (user.role === "ADMIN") navigate("/admin/dashboard");
-      else if (user.role === "DOCTOR") navigate("/doctor/dashboard");
+      if (validUser.role === "ADMIN") navigate("/admin/dashboard");
+      else if (validUser.role === "DOCTOR") navigate("/doctor/dashboard");
       else navigate("/patient/dashboard");
-    }, 1000);
+    }, 800);
   };
 
   return (
     <div className="login-wrapper">
       <div className="login-page">
+
+        {/* LEFT IMAGE */}
         <div className="login-left">
-          <img
-            src="src/assets/images/userlogin.png"
-            alt="Login"
-            className="auth-img"
-          />
+          <img src={userlogin} alt="Login" />
         </div>
 
+        {/* RIGHT FORM */}
         <div className="login-right">
-          <form className="login-card" onSubmit={handleLogin}>
+
+          {/* POPUP MESSAGE */}
+          {popupMessage && (
+            <div className={`popup-card ${popupType}`}>
+              {popupMessage}
+            </div>
+          )}
+
+          <form onSubmit={handleLogin} className="login-card">
             <h2>Login</h2>
 
-            {message && (
-              <MessageCard
-                message={message.text}
-                type={message.type}
-                onClose={() => setMessage(null)}
-              />
-            )}
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-            <div className="input-field">
-              <input
-                type="text"
-                placeholder="Username or Email"
-                value={identifier}
-                onChange={(e) => setIdentifier(e.target.value)}
-                required
-              />
-            </div>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
 
-            <div className="input-field">
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-
-            <button type="submit" className="login-btn" disabled={loading}>
+            <button type="submit" disabled={loading}>
               {loading ? "Logging in..." : "Login"}
             </button>
 
-            <p className="forgot-pass">Demo Mode Active</p>
-
             <p className="signup-text">
               Don't have an account?{" "}
-              <span onClick={() => navigate("/signup")}>Sign Up</span>
+              <span onClick={() => navigate("/signup")}>Signup</span>
             </p>
           </form>
+
         </div>
       </div>
     </div>

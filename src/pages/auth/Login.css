@@ -31,11 +31,11 @@
   max-width: 720px;
   height: auto;
   object-fit: contain;
-  /* Vendor prefix first for compatibility */
- image-rendering: -webkit-optimize-contrast; /* Safari / Legacy Edge */
+  image-rendering: -webkit-optimize-contrast; /* Safari / Legacy Edge */
   image-rendering: pixelated;
   filter: none;
 }
+
 /* --- RIGHT SIDE (CARD) --- */
 .login-wrapper .login-right {
   flex: 1;
@@ -125,41 +125,59 @@
 }
 
 /* ===========================
-   POPUP CARD
+   POPUP / NOTIFICATION
    =========================== */
 .login-wrapper .popup-card {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 25px 35px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 1.1rem;
+  top: 20px;
+  right: 20px;
+  min-width: 220px;
+  max-width: 280px;
+  padding: 10px 16px;
+  border-radius: 12px;
   color: white;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-in-out, fadeOut 0.3s ease-in-out 2s forwards;
   z-index: 9999;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  text-align: center;
-  animation: fadein 0.3s ease, fadeout 0.3s ease 2s forwards;
 }
 
-.login-wrapper .popup-card.success { background-color: #10b981; }
-.login-wrapper .popup-card.error { background-color: #d32f2f; }
-
-@keyframes fadein {
-  from { opacity: 0; transform: translate(-50%, -55%); }
-  to { opacity: 1; transform: translate(-50%, -50%); }
+/* Success Notification */
+.login-wrapper .popup-card.success {
+  background-color: #10b981;
 }
 
-@keyframes fadeout {
-  from { opacity: 1; transform: translate(-50%, -50%); }
-  to { opacity: 0; transform: translate(-50%, -45%); }
+/* Error Notification */
+.login-wrapper .popup-card.error {
+  background-color: #ef4444;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 /* ================================================================
-   ALL-SCREEN RESPONSIVE MEDIA QUERIES (UPDATED)
+   ALL-SCREEN RESPONSIVE MEDIA QUERIES
 ================================================================ */
-
 @media (max-width: 1024px) {
   .login-wrapper .login-left { 
     display: none; 
@@ -187,7 +205,7 @@
 
 @media (max-width: 480px) {
   .login-wrapper {
-    background-color: #ffffff; /* Clean look for mobile */
+    background-color: #ffffff;
   }
 
   .login-wrapper .login-page {
@@ -195,19 +213,19 @@
   }
 
   .login-wrapper .login-card {
-    box-shadow: none; /* Removes shadow on small phones for a flat UI */
+    box-shadow: none;
     border: 1px solid #f1f5f9;
     padding: 20px;
   }
 
   .login-wrapper .login-card input {
-    padding: 16px; /* Larger hit area */
-    font-size: 16px; /* Prevents auto-zoom on iOS */
+    padding: 16px;
+    font-size: 16px;
   }
 
   .login-wrapper .popup-card {
     width: 85%;
-    font-size: 1rem;
-    padding: 20px;
+    font-size: 13px;
+    padding: 12px 16px;
   }
 }
