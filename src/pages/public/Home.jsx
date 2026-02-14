@@ -327,7 +327,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { doctorsDummyData } from "../../utils/doctorsDummyData";
 import heroImg from "../../assets/images/d.png";
-import "./home.css";
+import "./Home.css";
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
