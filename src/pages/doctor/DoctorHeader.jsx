@@ -93,11 +93,9 @@ const DoctorHeader = ({ setIsMobileOpen }) => {
     "/doctor/dashboard": "Dashboard Overview",
     "/doctor/appointments": "My Appointments",
     "/doctor/patients": "Patient Records",
-   "/doctor/add-patient": "Add New Patient",// Naya Tab
     "/doctor/availability": "Set Availability",
     "/doctor/profile": "My Profile",
     "/doctor/notifications": "Notifications"
-    
   };
 
   return (

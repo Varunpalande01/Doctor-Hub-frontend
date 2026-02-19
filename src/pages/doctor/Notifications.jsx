@@ -61,7 +61,7 @@
 import React from "react";
 import { useNotifications } from "../../context/NotificationContext";
 import { useNavigate } from "react-router-dom";
-import { FiCalendar, FiUser, FiInfo, FiChevronRight, FiClock } from "react-icons/fi"; 
+import { FiCalendar, FiUser, FiInfo, FiChevronRight } from "react-icons/fi"; 
 import "./Notifications.css";
 
 const DoctorNotifications = () => {
@@ -88,16 +88,13 @@ const DoctorNotifications = () => {
   return (
     <div className="doctor-notifications-page">
       <div className="notif-page-header">
-        <div className="header-left">
-          <h3>Notifications</h3>
-          <p>You have {notifications.length} unread updates</p>
-        </div>
+        <h3>Recent Activity</h3>
+        <p>You have {notifications.length} new updates</p>
       </div>
 
       {Object.keys(grouped).length === 0 && (
-        <div className="no-notif-box">
-          <FiBellOff className="empty-icon" />
-          <p>No new notifications</p>
+        <div className="no-notif">
+          <p>No notifications yet.</p>
         </div>
       )}
 
@@ -118,16 +115,9 @@ const DoctorNotifications = () => {
                   {type === "PROFILE" && <FiInfo />}
                 </div>
                 
-                <div className="notif-content-wrapper">
-                  <div className="notif-main-row">
-                    <p className="notif-msg">{n.message}</p>
-                    {/* ✅ YAHAN TIME DIKHEGA */}
-                    <span className="notif-timestamp">
-                      <FiClock className="time-icon" />
-                      {n.time || "10:30 AM"} 
-                    </span>
-                  </div>
-                  <span className="notif-date-tag">Today</span>
+                <div className="notif-body">
+                  <p className="notif-msg">{n.message}</p>
+                  <span className="notif-time">Just now</span>
                 </div>
 
                 <FiChevronRight className="notif-arrow" />

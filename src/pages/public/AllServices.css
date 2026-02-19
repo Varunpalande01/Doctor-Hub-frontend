@@ -325,129 +325,124 @@ body {
   }
 }
 /* --- ULTIMATE PROFESSIONAL FOOTER --- */
-/* --- FOOTER FULL STYLING --- */
-.main-footer { 
-  background: var(--primary-dark); 
-  color: white; 
-  padding: 50px 8% 30px; 
-  margin-top: 50px;
-  position: relative;
-  z-index: 1;
+.main-footer {
+  background: var(--primary); /* Book Now wala exact green */
+  color: white;
+  padding: 100px 0 30px; /* Zyada white space = Zyada Professional */
+  margin-top: 100px;
+  width: 100%;
 }
 
-.footer-container { 
-  display: grid; 
-  grid-template-columns: 1.5fr 1fr 1fr 1.2fr; 
-  gap: 40px; 
+.footer-container {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Columns ke beech perfect gap */
+  align-items: flex-start;
+  padding: 0 40px;
 }
 
-.footer-column h4 { 
-  font-size: 18px; 
-  margin-bottom: 25px; 
-  color: white; 
+.footer-column {
+  flex: 1;
+}
+
+.footer-column.brand-col {
+  flex: 1.5; /* Brand section thoda bada */
+}
+
+.footer-logo {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 25px;
+  letter-spacing: -1px;
+}
+
+.footer-logo span {
+  background: white;
+  color: var(--primary);
+  padding: 4px 12px;
+  border-radius: 10px;
+  margin-left: 8px;
+}
+
+.footer-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 300px;
+}
+
+.footer-column h4 {
+  font-size: 17px;
   font-weight: 700;
-  position: relative;
+  margin-bottom: 30px;
+  text-transform: uppercase; /* Professional look */
+  letter-spacing: 1px;
 }
 
-/* Desktop pe headings ke niche line */
-.footer-column h4::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 30px;
-  height: 2px;
-  background: rgba(255,255,255,0.3);
+.footer-list {
+  list-style: none; /* Bullet points hatane ke liye */
+  padding: 0;
+  margin: 0;
 }
 
-.footer-list { list-style: none; padding: 0; }
-.footer-list li { 
-  margin-bottom: 12px; 
-  color: #cbd5e1; 
-  cursor: pointer; 
+.footer-list li {
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.footer-list li:hover {
+  color: white;
+  transform: translateX(8px); /* Smooth movement on hover */
+}
+
+.footer-contact-info p {
+  font-size: 15px;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Circle icons are more professional */
   font-size: 14px;
   transition: 0.3s;
-}
-.footer-list li:hover { color: white; transform: translateX(5px); }
-
-/* Real Social Icons */
-.footer-socials { display: flex; gap: 12px; margin-top: 20px; }
-.social-icon {
-  width: 38px; height: 38px; 
-  background: rgba(255,255,255,0.1);
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 50%; color: white; font-size: 18px; 
-  transition: 0.3s; text-decoration: none;
-}
-.social-icon:hover { background: white; color: var(--primary-dark); transform: translateY(-3px); }
-
-.footer-logo { font-size: 26px; font-weight: 800; margin-bottom: 15px; color: white; }
-.footer-logo span { color: var(--text-dark); background: white; padding: 2px 8px; border-radius: 6px; margin-left: 5px; }
-
-.footer-desc { color: #cbd5e1; font-size: 14px; line-height: 1.6; max-width: 300px; }
-.footer-contact-info p { margin-bottom: 12px; color: #cbd5e1; font-size: 14px; display: flex; align-items: center; gap: 10px; }
-
-/* --- MOBILE 3-COLUMN HORIZONTAL FIX --- */
-@media (max-width: 768px) {
-  .footer-container { 
-    display: flex !important;
-    flex-direction: row !important; /* Force horizontal row */
-    flex-wrap: wrap !important; 
-    gap: 10px !important;
-    text-align: left;
-    padding: 0 10px;
-  }
-
-  .footer-column.brand-col {
-    flex: 0 0 100% !important; /* Brand full width on top */
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 20px;
-  }
-
-  /* Services, Support, Contact info teeno ek line mein */
-  .footer-column:not(.brand-col) {
-    flex: 1 !important; 
-    min-width: 0 !important; /* Allow shrinking to fit 3 in a row */
-    margin-bottom: 0;
-  }
-
-  .footer-column h4 {
-    font-size: 11px !important; /* Chota font taaki 3 column fit ho jayein */
-    margin-bottom: 10px;
-    white-space: nowrap;
-  }
-
-  .footer-column h4::after { display: none; }
-
-  .footer-list li, .footer-contact-info p {
-    font-size: 10px !important; /* Very small font for mobile row */
-    margin-bottom: 6px;
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .footer-contact-info p { 
-    white-space: normal; /* Address ko wrap hone do */
-  }
-
-  .social-icon { width: 30px; height: 30px; font-size: 14px; }
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.footer-bottom { 
-  border-top: 1px solid rgba(255,255,255,0.1); 
-  margin-top: 40px; 
-  padding: 20px 0;
-  text-align: center; 
+.social-icon:hover {
+  background: white;
+  color: var(--primary);
 }
-.footer-bottom-content p { 
-  font-size: 14px; /* Fixed from 52px to 14px */
-  color: #ffffff !important; /* Pure white */
-  opacity: 0.8;
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 80px;
+  padding: 30px 40px 0;
 }
+
+.footer-bottom-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 /* --- MOBILE RESPONSIVE --- */
 @media (max-width: 900px) {
   .footer-container {

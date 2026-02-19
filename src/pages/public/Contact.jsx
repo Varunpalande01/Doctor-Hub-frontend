@@ -133,7 +133,7 @@ const ContactUs = () => {
           <span className="nav-item" onClick={() => navigate("/about")}>About Us</span>
 
           <span className="nav-item" onClick={() => navigate("/all-services")}> Services</span>
-                    <span className="nav-item" onClick={() => navigate("/blogs")}>Doctor's Blogs</span>
+                    <span className="nav-item" onClick={() => navigate("/blogs")}>Blogs</span>
  <span className="nav-item active-tab" onClick={() => navigate("/contact")}>Contact Us</span>
           <div className="nav-item dropdown-toggle" ref={saasRef}>
             <span onClick={() => setSaasDropdown(!saasDropdown)}>SaaS Solutions ▾</span>
@@ -186,16 +186,16 @@ const ContactUs = () => {
               <div className="form-grid">
                 <div className="input-group">
                   <label>First Name</label>
-                  <input type="text" placeholder="First Name" required />
+                  <input type="text" placeholder="John" required />
                 </div>
                 <div className="input-group">
                   <label>Last Name</label>
-                  <input type="text" placeholder="Surname" required />
+                  <input type="text" placeholder="Doe" required />
                 </div>
               </div>
               <div className="input-group">
                 <label>Email Address</label>
-                <input type="email" placeholder="YourEmail@gmail.com" required />
+                <input type="email" placeholder="john@example.com" required />
               </div>
               <div className="input-group">
                 <label>Message</label>
@@ -217,10 +217,9 @@ const ContactUs = () => {
         finding labs, and managing health records made simple.
       </p>
       <div className="footer-socials">
-        <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-        <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
-        <a href="#" className="social-icon"><i className="fab fa-linkedin-in"></i></a>
-        <a href="#" className="social-icon"><i className="fab fa-whatsapp"></i></a>
+        <span className="social-icon">fb</span>
+        <span className="social-icon">tw</span>
+        <span className="social-icon">ln</span>
       </div>
     </div>
 
@@ -228,10 +227,10 @@ const ContactUs = () => {
     <div className="footer-column">
       <h4>Services</h4>
       <ul className="footer-list">
-        <li  onClick={() => navigate("/all-services")}>Find Doctors</li>
-        <li  onClick={() => navigate("/all-services")}>Hospitals</li>
-        <li  onClick={() => navigate("/all-services")}>Diagnostic Labs</li>
-        <li  onClick={() => navigate("/all-services")}>Online Pharmacy</li>
+        <li>Find Doctors</li>
+        <li>Hospitals</li>
+        <li>Diagnostic Labs</li>
+        <li>Online Pharmacy</li>
       </ul>
     </div>
 

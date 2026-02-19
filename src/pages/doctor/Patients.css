@@ -1,313 +1,168 @@
-/* ===============================
-   Page Layout
-================================ */
+/* ======================================================
+   PATIENT DIRECTORY - UNIVERSAL RESPONSIVE CSS
+   ====================================================== */
+
 .patients-page {
-  padding: 30px;
-  background: #f4f7fb;
+  padding: 15px;
+  background-color: #f8fafc;
   min-height: 100vh;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
 }
 
-/* ===============================
-   Header
-================================ */
-.patients-header {
+/* --- HEADER --- */
+.patients-header-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
+.patients-header-section h2 { font-size: 22px; color: #1e293b; font-weight: 800; margin: 0; }
+.total-badge { background: #10b981; padding: 5px 12px; border-radius: 20px; color: white; font-size: 12px; font-weight: 700; }
 
-.patients-header h2 {
-  font-size: 24px;
-  font-weight: 600;
-  color: #1e293b;
-}
-
-.count-badge {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-}
-
-/* ===============================
-   Filters Layout
-================================ */
-.filters {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 25px;
-}
-
-/* Left Side Controls */
-.filter-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-/* Bigger Search */
-.search-input {
-  padding: 12px 16px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  font-size: 14px;
-  width: 280px;
-  transition: 0.3s ease;
-  background: #f9fafb;
-}
-
-.search-input:focus {
-  border-color: #10b981;
-  background: #ffffff;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
-}
-
-/* Select Styling */
-.filter-left select {
-  padding: 11px 14px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  font-size: 14px;
-  min-width: 160px;
-  background: #f9fafb;
-  transition: 0.3s ease;
-}
-
-.filter-left select:focus {
-  border-color: #10b981;
-  background: #ffffff;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
-}
-
-/* Critical Checkbox Proper Alignment */
-.critical-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: #f9fafb;
-  border: 1px solid #d1d5db;
-}
-
-.critical-wrapper input {
-  width: 16px;
-  height: 16px;
-  margin: 0;
-  cursor: pointer;
-}
-
-.critical-wrapper label {
-  font-size: 14px;
-  cursor: pointer;
-  color: #374151;
-}
-
-/* Reset Button Proper Position */
-.reset-btn {
-  padding: 11px 18px;
-  background: #ef4444;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.reset-btn:hover {
-  background: #dc2626;
-}
-
-/* Responsive Fix */
-@media (max-width: 768px) {
-  .filters {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .filter-left {
-    width: 100%;
-  }
-
-  .search-input {
-    width: 100%;
-  }
-
-  .reset-btn {
-    width: 100%;
-  }
-}
-
-/* ===============================
-   Table View
-================================ */
-.table-view {
-  display: none;
-}
-
-.table-view table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+/* --- FILTERS (Compact on Mobile) --- */
+.search-filter-container {
   background: white;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.search-bar { 
+  width: 100%; 
+  padding: 12px; 
+  border-radius: 8px; 
+  border: 1px solid #e2e8f0; 
+  background: #f1f5f9; 
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.filter-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.filter-actions select { padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0; background: white; font-weight: 600; font-size: 13px; }
+.reset-btn { 
+  grid-column: span 2; 
+  padding: 12px; 
+  border: none; 
+  background: #fee2e2; 
+  color: #ef4444; 
+  font-weight: 700; 
+  border-radius: 8px; 
+  cursor: pointer; 
 }
 
-.table-view thead {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
+/* --- PATIENT LIST CONTAINER --- */
+.patient-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.table-view th {
+/* --- MOBILE CARD (DEFAULT) --- */
+.patient-card {
+  background: white;
+  border-radius: 12px;
   padding: 16px;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: left;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.table-view td {
-  padding: 14px 16px;
-  font-size: 14px;
-  color: #374151;
-}
-
-.table-view tbody tr {
-  transition: 0.2s ease;
-}
-
-.table-view tbody tr:hover {
-  background: #f0fdf4;
-}
-
-.table-view tbody tr:not(:last-child) td {
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
   border-bottom: 1px solid #f1f5f9;
+  gap: 10px; /* Space between label and value */
+}
+.card-row:last-of-type { border-bottom: none; }
+
+.row-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  min-width: 80px; /* Label won't shrink */
+  flex-shrink: 0;
 }
 
-/* Action Button */
-.table-view button {
-  padding: 6px 12px;
+.row-value {
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 600;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Prevents text from jumping to next line */
+}
+
+.gender-tag { padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+.gender-tag.male { background: #e0f2fe; color: #0369a1; }
+.gender-tag.female { background: #fce7f3; color: #9d174d; }
+
+.view-btn {
+  width: 100%;
+  padding: 14px;
   background: #10b981;
   color: white;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: 0.3s ease;
-}
-
-.table-view button:hover {
-  background: #059669;
-}
-
-/* ===============================
-   Critical Badge
-================================ */
-.critical-badge {
-  background: #fee2e2;
-  color: #b91c1c;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-}
-/* ===============================
-   Critical Checkbox Compact Fix
-================================ */
-.critical-filter {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #b91c1c;
-  white-space: nowrap;
-}
-
-.critical-filter input {
-  margin: 0;
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-
-/* ===============================
-   Card View (Mobile)
-================================ */
-.card-view {
-  display: block;
-}
-
-.patient-card {
-  background: #ffffff;
-  padding: 18px;
-  border-radius: 14px;
-  margin-bottom: 18px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e5e7eb;
-  transition: 0.2s ease;
-}
-
-.patient-card:hover {
-  transform: translateY(-3px);
-}
-
-.patient-card h4 {
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #1f2937;
-}
-
-.patient-card p {
-  font-size: 13px;
-  margin: 4px 0;
-  color: #475569;
-}
-
-.patient-card button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 12px;
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  border: none;
   border-radius: 10px;
-  font-size: 14px;
+  font-weight: 700;
   cursor: pointer;
-  transition: 0.3s ease;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
-.patient-card button:hover {
-  opacity: 0.9;
-}
-
-/* ===============================
-   Responsive Switch
-================================ */
-@media (min-width: 1024px) {
-  .table-view {
-    display: block;
+/* --- 🖥️ LAPTOP/TABLET VIEW (BREAKPOINT) --- */
+@media (min-width: 769px) {
+  .patient-list-container {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+  }
+  
+  .patient-card {
+    flex-direction: row;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #f1f5f9;
+    justify-content: space-between;
+    padding: 15px 20px;
+    align-items: center;
+    gap: 0;
   }
 
-  .card-view {
-    display: none;
+  .patient-card:hover { background-color: #f8fafc; }
+
+  .card-row {
+    flex-direction: column;
+    border: none;
+    padding: 0;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1; /* Equal spacing for all columns */
+  }
+
+  .row-label { 
+    display: block; 
+    margin-bottom: 4px; 
+    font-size: 10px; 
+  }
+
+  .row-value { 
+    text-align: left; 
+    font-size: 15px; 
+  }
+
+  .view-btn { 
+    width: auto; 
+    padding: 10px 20px; 
+    margin-top: 0; 
   }
 }

@@ -826,21 +826,20 @@ const AllServicesPage = () => {
         finding labs, and managing health records made simple.
       </p>
       <div className="footer-socials">
-        <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-        <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
-        <a href="#" className="social-icon"><i className="fab fa-linkedin-in"></i></a>
-        <a href="#" className="social-icon"><i className="fab fa-whatsapp"></i></a>
+        <span className="social-icon">fb</span>
+        <span className="social-icon">tw</span>
+        <span className="social-icon">ln</span>
       </div>
     </div>
 
     {/* Column 2: Services */}
     <div className="footer-column">
       <h4>Services</h4>
-     <ul className="footer-list">
-        <li  onClick={() => navigate("/all-services")}>Find Doctors</li>
-        <li  onClick={() => navigate("/all-services")}>Hospitals</li>
-        <li  onClick={() => navigate("/all-services")}>Diagnostic Labs</li>
-        <li  onClick={() => navigate("/all-services")}>Online Pharmacy</li>
+      <ul className="footer-list">
+        <li>Find Doctors</li>
+        <li>Hospitals</li>
+        <li>Diagnostic Labs</li>
+        <li>Online Pharmacy</li>
       </ul>
     </div>
 
